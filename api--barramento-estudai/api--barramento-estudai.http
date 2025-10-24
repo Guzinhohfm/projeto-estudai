@@ -1,0 +1,6 @@
+@api__barramento_estudai_HostAddress = http://localhost:5111
+
+GET {{api__barramento_estudai_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

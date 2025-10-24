@@ -1,0 +1,306 @@
+/* Custom Gradient Utilities */
+.bg-gradient-blue-purple {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.bg-gradient-purple-blue {
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+}
+
+.text-gradient-blue-purple {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.shadow-blue {
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.2);
+}
+
+.shadow-purple {
+    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.2);
+}
+
+/* Login Type Buttons */
+.login-type-btn {
+    font-size: 0.875rem;
+}
+
+.login-type-btn.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+}
+
+/* Sidebar */
+#sidebar {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 50;
+        transform: translateX(-100%);
+    }
+    
+    #sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+/* Navigation Items */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    color: #475569;
+}
+
+.dark .nav-item {
+    color: #cbd5e1;
+}
+
+.nav-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+.dark .nav-item:hover {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+}
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    padding: 1.5rem;
+    transition: all 0.3s;
+}
+
+.dark .card {
+    background: #1e293b;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.card:hover {
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Post Card */
+.post-card {
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.dark .post-card {
+    background: #1e293b;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.2);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 20px 0 rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: white;
+    color: #2563eb;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    cursor: pointer;
+}
+
+.dark .btn-secondary {
+    background: #1e293b;
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px 0 rgba(59, 130, 246, 0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    z-index: 40;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px 0 rgba(59, 130, 246, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.6);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 1rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.dark .modal-content {
+    background: #1e293b;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border-gradient {
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.dark .border-gradient {
+    background-image: linear-gradient(#1e293b, #1e293b), linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}

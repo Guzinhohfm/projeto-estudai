@@ -1,0 +1,23 @@
+# =========================
+# Diretórios de build (.NET)
+# =========================
+**/bin/
+**/obj/
+
+# =========================
+# Diretórios do Visual Studio
+# =========================
+**/.vs/
+
+# =========================
+# Configurações de usuário do Visual Studio
+# =========================
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =========================
+# Diretórios do Node.js (React)
+# =========================
+**/node_modules/

@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # 🗄️ Banco de dados
+  db-estudai:
+    image: mysql:8.0
+    container_name: db-estudai
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_EstudAI
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-volume:/var/lib/mysql
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - estudai-network
+
+  # ⚙️ Backend (.NET 8)
+  backend:
+    container_name: backend-estudai
+    build:
+      context: ./api--barramento-estudai
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db-estudai
+    environment:
+      ASPNETCORE_URLS: "http://+:8080"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=db-estudai;Port=3306;Database=db_EstudAI;User=root;Password=root;"
+    networks:
+      - estudai-network
+
+  # 💻 Frontend (React + Vite)
+  frontend:
+    container_name: frontend-estudai
+    build:
+      context: ./app-web-estudai
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: "http://localhost:8080"
+    networks:
+      - estudai-network
+
+volumes:
+  db-volume:
+
+networks:
+  estudai-network:
+    driver: bridge
