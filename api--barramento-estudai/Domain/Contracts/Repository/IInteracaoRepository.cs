@@ -1,10 +1,11 @@
-﻿using api__barramento_estudai.Domain.Entities;
+﻿using api__barramento_estudai.Application.Dto;
+using api__barramento_estudai.Domain.Entities;
 
 namespace api__barramento_estudai.Domain.Contracts.Repository
 {
     public interface IInteracaoRepository
     {
-        Task<bool> AdicionarAsync(Interacao interacao);
+        Task<bool> AdicionarAsync(InteracaoDto interacaoDto);
 
         Task<int> ContarCurtidasAsync(int codPostagem);
 

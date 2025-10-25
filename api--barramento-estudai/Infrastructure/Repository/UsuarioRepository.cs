@@ -67,6 +67,25 @@ namespace api__barramento_estudai.Infrastructure.Repository
             }
         }
 
+        public async Task<IEnumerable<Usuario>> BuscarUsuarios()
+        {
+            try
+            {
+                _logger.LogInformation("Buscando usuarios...");
+
+                const string sql = "SELECT * FROM Usuarios";
+
+                using var conn = await _context.ObterConnectionAsync();
+
+                return await conn.QueryAsync<Usuario>(sql);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Não foi possível listar os usuários {@Erro}", ex.Message);
+                return null;
+            }
+        }
+
         public async Task<Usuario> IncluirUsuarioAsync(Usuario usuario)
         {
             const string proc = "sp_inserir_usuario";

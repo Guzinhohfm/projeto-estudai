@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using api__barramento_estudai.Application.Dto;
 using api__barramento_estudai.Domain.Contracts;
 using api__barramento_estudai.Domain.Contracts.Repository;
 using api__barramento_estudai.Domain.Entities;
@@ -16,16 +17,16 @@ namespace api__barramento_estudai.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<bool> AdicionarAsync(Interacao interacao)
+        public async Task<bool> AdicionarAsync(InteracaoDto interacaoDto)
         {
             try
             {
-                Console.WriteLine(JsonSerializer.Serialize(interacao));
+                Console.WriteLine(JsonSerializer.Serialize(interacaoDto));
                 using var conn = await _context.ObterConnectionAsync();
                 var query = @"
                 INSERT INTO Interacao (Cod_usuario, Cod_postagem, Tipo_interacao, Comentario, Data_interacao)
                 VALUES (@Cod_usuario, @Cod_postagem, @Tipo_interacao, @Comentario, @Data_interacao)";
-                var result = await conn.ExecuteAsync(query, interacao);
+                var result = await conn.ExecuteAsync(query, interacaoDto);
 
                 return result > 0;
             }

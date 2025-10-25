@@ -10,8 +10,11 @@ namespace api__barramento_estudai.Domain.Contracts.Repository
 
         Task<Usuario> BuscarUsuarioPorEmail(string email);
 
+
         Task<Usuario> BuscarUsuarioPorId(int id);
 
         Task<int> ObterIdUsuarioPorNome(string nome);
+
+        Task<IEnumerable<Usuario>> BuscarUsuarios();
     }
 }

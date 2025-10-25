@@ -2,8 +2,8 @@
 {
     public enum StatusConexao
     {
-        Pendente = 'P',
-        Aceita = 'A',
-        Recusada = 'R'
+        Pendente = 1,
+        Aceita = 2,
+        Recusada = 3
     }
 }

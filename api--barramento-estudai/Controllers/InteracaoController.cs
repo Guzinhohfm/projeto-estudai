@@ -1,4 +1,6 @@
-﻿using api__barramento_estudai.Domain.Contracts.Repository;
+﻿using System.Text.Json;
+using api__barramento_estudai.Application.Dto;
+using api__barramento_estudai.Domain.Contracts.Repository;
 using api__barramento_estudai.Domain.Entities;
 using api__barramento_estudai.Infrastructure.Repository;
 using Microsoft.AspNetCore.Authorization;
@@ -19,10 +21,12 @@ namespace api__barramento_estudai.Controllers
         }
 
         [HttpPost("curtir")]
-        public async Task<IActionResult> Curtir([FromBody] Interacao model)
+        public async Task<IActionResult> Curtir([FromBody] InteracaoDto model)
         {
             model.Tipo_interacao = 1;
             model.Data_interacao = DateTime.Now;
+
+            Console.WriteLine("interacao: " + JsonSerializer.Serialize(model));
 
             if (await _interacaoRepository.UsuarioCurtiuAsync(model.Cod_usuario, model.Cod_postagem))
                 return BadRequest("Você já curtiu a postagem!!");
@@ -32,7 +36,7 @@ namespace api__barramento_estudai.Controllers
         }
 
         [HttpPost("comentar")]
-        public async Task<IActionResult> Comentar([FromBody] Interacao model)
+        public async Task<IActionResult> Comentar([FromBody] InteracaoDto model)
         {
             model.Tipo_interacao = 2;
             model.Data_interacao = DateTime.Now;

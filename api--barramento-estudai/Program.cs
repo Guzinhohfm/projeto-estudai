@@ -62,6 +62,7 @@ builder.Services.AddScoped<IPostagemService, PostagemService>();
 builder.Services.AddScoped<ICursoRepository,  CursoRepository>();
 builder.Services.AddScoped<IUsuarioGrupoRepository, UsuarioGrupoRepository>();
 builder.Services.AddScoped<IInteracaoRepository, InteracaoRepository>();
+builder.Services.AddScoped<IConexaoRepository, ConexaoRepository>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 
 builder.Services.AddControllers();
